@@ -12,6 +12,7 @@ import { modalState } from "../atoms/modalAtoms";
 
 function Home(){
     const date = new Date()
+    const[open,setOpen] = useRecoilState(modalState)
     const[posts, setPosts] = useState([])
     const[loading, setLoading] = useState(true)
     const router = useRouter()
@@ -29,7 +30,7 @@ function Home(){
       },[auth])
     
     useEffect(() => {
-      const collectionRef = collection(db, sessionStorage.getItem('year'))
+      const collectionRef = collection(db, open)
       const timestamp = query(collectionRef, orderBy('date', 'desc'), limit(20))
         onSnapshot(timestamp, (data) => {
           setPosts(data.docs.map((item) => {

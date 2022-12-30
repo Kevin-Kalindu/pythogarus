@@ -6,8 +6,11 @@ import { app, db } from '../firbase'
 import Sidebar from '../components/Sidebar'
 import { useParallax } from 'react-scroll-parallax'
 import Image from 'next/image'
+import { useRecoilState } from 'recoil'
+import { modalState } from '../atoms/modalAtoms'
 
 export default function Home() {
+  const[open,setOpen] = useRecoilState(modalState)
   const router = useRouter()
   const auth = getAuth(app)
   const [type, setType] = useState()
@@ -56,7 +59,7 @@ export default function Home() {
     const monthr2 = date1.charAt(6)
     const date3 = Number(dater.concat(dater2))
     const month = Number(monthr.concat(monthr2))
-    addDoc(collection(db,sessionStorage.getItem('year')), {
+    addDoc(collection(db,open), {
       expense: expense,
       amount: Number(amount),
       date: date1,

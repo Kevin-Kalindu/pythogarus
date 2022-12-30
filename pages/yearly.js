@@ -13,6 +13,7 @@ import { modalState } from "../atoms/modalAtoms"
 import { useRecoilState } from "recoil"
 
 function yearly(){
+  const [open,setOpen] = useRecoilState(modalState)
     const [total,setTotal] = useState()
     const[type, setType] = useState()
     const[january, setJanuary] = useState([])
@@ -46,7 +47,7 @@ function yearly(){
     const yyyy = date.getFullYear()
     const auth = getAuth(app)
     const router = useRouter()
-    const collectionRef = collection(db, sessionStorage.getItem('year'))
+    const collectionRef = collection(db, open)
     const types =['Food',
     'Transport', 'Education',
     'Fuel','General', 'Stationary',

@@ -1,10 +1,13 @@
 import { deleteDoc, doc } from "firebase/firestore"
 import { HiBan } from "react-icons/hi"
+import { modalState } from "../atoms/modalAtoms"
 import { db } from "../firbase"
+import { useRecoilState } from "recoil";
 
 function Accounts ({id, expense, amount, type, date, month}){
+    const[open,setOpen] = useRecoilState(modalState)
     function delete1(){
-        const doc1 = doc(db, sessionStorage.getItem('year'), id)
+        const doc1 = doc(db, open, id)
         deleteDoc(doc1)
         .catch((err) => console.log(err.message))
     }

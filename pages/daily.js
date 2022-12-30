@@ -12,13 +12,12 @@ import { modalState } from '../atoms/modalAtoms'
 import { useRecoilState } from 'recoil'
 
 function daily(){
-  const [open,setOpen] = useRecoilState(modalState)
+    const [open,setOpen] = useRecoilState(modalState)
     const date = new Date()
     const dd = date.getDate()
     const mm = date.getMonth()
     const yyyy = date.getFullYear()
-    const year = String(yyyy)
-    const collectionRef = collection(db, sessionStorage.getItem('year'))    
+    const collectionRef = collection(db, open)    
     const [day, setDay] = useState('')
     const [month, setMonth] = useState('')
     const [loading, setLoading] = useState(false)

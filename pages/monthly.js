@@ -7,8 +7,12 @@ import Sidebar from "../components/Sidebar"
 import { collection, limit, onSnapshot, orderBy, query, where } from "firebase/firestore"
 import { HiArrowLeft, HiArrowRight, HiOutlineCalendar, HiOutlineClock, HiOutlineUser } from "react-icons/hi"
 import MonthlyAccounts from '../components/MonthlyAccounts'
+import { modalState } from '../atoms/modalAtoms'
+import { useRecoilState } from 'recoil'
 
 function monthly() {
+  const[open,setOpen] = useRecoilState(modalState)
+  const collectionRef = collection(db, open)
   const date = new Date()
   const dd = date.getDate()
   const mm = date.getMonth() + 1
@@ -81,7 +85,6 @@ function monthly() {
   }, [auth])
 
   useEffect(() => {
-    const collectionRef = collection(db, sessionStorage.getItem('year'))
     const monthRef = query(collectionRef,where('month', '==', mm))
     onSnapshot(monthRef, (data) => {
       setPosts(data.docs.map((item) => {
@@ -91,7 +94,6 @@ function monthly() {
   }, [db])
 
   const change =(mm1) => {
-    const collectionRef = collection(db, sessionStorage.getItem('year'))
     const monthRef = query(collectionRef,where('month', '==', mm1))
     onSnapshot(monthRef, (data) => {
       setPosts(data.docs.map((item) => {

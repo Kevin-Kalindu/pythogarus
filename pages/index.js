@@ -6,14 +6,17 @@ import Stars from './images/stars.png'
 import MountainBehind from './images/mountains_behind.png'
 import MountainFront from './images/mountains_front.png'
 import {useRouter} from 'next/router'
+import { useRecoilState } from 'recoil'
+import { modalState } from '../atoms/modalAtoms'
 
 function index(){
     const date = new Date()
     const yyyy = date.getFullYear()
-    const next = yyyy +1
+    const next = yyyy -1
     const year = String(yyyy)
     const next_year = String(next)
     const router = useRouter()
+    const [open, setOpen] = useRecoilState(modalState)
     return(
         <div className={styles.main}>
             <header>
@@ -29,13 +32,13 @@ function index(){
                     <h2 className={styles.text}>Welcome Home</h2>
                     <div className='z-30 flex gap-4'>
                     <button className={styles.btn} onClick={() => {
-                        sessionStorage.setItem('year', year)
-                        router.push('./main')
-                    }}>{yyyy}</button>
-                    <button className={styles.btn} onClick={() => {
-                        sessionStorage.setItem('year',next_year)
+                        setOpen(next_year)
                         router.push('./main')
                     }}>{next_year}</button>
+                    <button className={styles.btn} onClick={() => {
+                        setOpen(year)
+                        router.push('./main')
+                    }}>{year}</button>
                     </div>
                     <Image className={styles.imgfront} src={MountainFront}/>
                 </section>
