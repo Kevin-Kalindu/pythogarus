@@ -73,7 +73,6 @@ export default function Home() {
       setType('')
       setExpense('')
       setAmount('')
-      setDate('')
     })
   }
 
