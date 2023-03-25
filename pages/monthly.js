@@ -22,6 +22,7 @@ function monthly() {
   const [logged, setLogged] = useState(false)
   const auth = getAuth(app)
   const[month,setMonth] = useState(mm)
+  const [otherPosts, setOtherPosts] = useState()
   let Total = 0
   let Education = 0
   let Fuel = 0
@@ -303,37 +304,37 @@ function monthly() {
                 </div>
               </div>
               <div className="mx-4 mt-4">
-                <div className="mb-2 text-center text-xl text-white grid grid-cols-3">
+                <div className="mb-2 text-center text-xl text-white grid grid-cols-4">
                   <h3>Type</h3>
                   <h3>Amount</h3>
                   <h3>Number</h3>
                 </div>
                 <div className='text-center flex flex-col space-y-4'>
-                  <MonthlyAccounts color1={'accent-green'} name={'Food'} amount={Food} number={TotalFood}/>
-                  <MonthlyAccounts color1={'accent-blue'} name={'Fuel'} amount={Fuel} number={TotalFuel}/>
-                  <MonthlyAccounts color1={'accent-red'} name={'Transportation'} amount={Transport} number={TotalTransport}/>
-                  <MonthlyAccounts color1={'accent-orange'} name={'Education'} amount={Education} number={TotalEducation}/>
-                  <MonthlyAccounts color1={'accent-purple'} name={'Genral'} amount={General} number={TotalGeneral}/>
-                  <MonthlyAccounts color1={'yellow-300'} name={'Stationary'} amount={Stationary} number={TotalStationary}/>
-                  <MonthlyAccounts color1={'accent-green'} name={'Vehical'} amount={Vehical} number={TotalVehical}/>
-                  <MonthlyAccounts color1={'accent-blue'} name={'Computer'} amount={Computer} number={TotalComputer}/>
-                  <MonthlyAccounts color1={'accent-red'} name={'Dress'} amount={Dress} number={TotalDress}/>
-                  <MonthlyAccounts color1={'accent-orange'} name={'Medical'} amount={Medical} number={TotalMedical}/>
-                  <MonthlyAccounts color1={'accent-purple'} name={'Telephone'} amount={Telephone} number={TotalTelephone}/>
-                  <MonthlyAccounts color1={'yellow-300'} name={'Water'} amount={Water} number={TotalWater}/>
-                  <MonthlyAccounts color1={'accent-green'} name={'Gas'} amount={Gas} number={TotalGas}/>
-                  <MonthlyAccounts color1={'accent-blue'} name={'Electricity'} amount={Electricity} number={TotalElectricity}/>
-                  <MonthlyAccounts color1={'accent-red'} name={'HouseHold'} amount={HouseHold} number={TotalHouseHold}/>
-                  <MonthlyAccounts color1={'accent-orange'} name={'Bank'} amount={Bank} number={TotalBank}/>
-                  <MonthlyAccounts color1={'accent-purple'} name={'Baby'} amount={Baby} number={TotalBaby}/>
-                  <MonthlyAccounts color1={'yellow-300'} name={'School'} amount={School} number={TotalSchool}/>
-                  <MonthlyAccounts color1={'accent-green'} name={'HouseCons'} amount={HouseCons} number={TotalHouseCons}/>
-                  <MonthlyAccounts color1={'accent-blue'} name={'PHD'} amount={PHD} number={TotalPHD}/>
-                  <MonthlyAccounts color1={'accent-red'} name={'OmanRent'} amount={OmanRent} number={TotalOmanRent}/>
-                  <MonthlyAccounts color1={'accent-orange'} name={'AirPassage'} amount={AirPassage} number={TotalAirPassage}/>
-                  <MonthlyAccounts color1={'accent-purple'} name={'OmanExpen'} amount={OmanExpen} number={TotalOmanExpen}/>
-                  <MonthlyAccounts color1={'yellow-300'} name={'NewZealand'} amount={NewZealand} number={TotalNewZealand}/>
-                  <MonthlyAccounts color1={'accent-green'} name={'Gifts'} amount={Gifts} number={TotalGifts}/>
+                  <MonthlyAccounts month={month} color1={'accent-green'} name={'Food'} amount={Food} number={TotalFood}/>
+                  <MonthlyAccounts month={month} color1={'accent-blue'} name={'Fuel'} amount={Fuel} number={TotalFuel}/>
+                  <MonthlyAccounts month={month} color1={'accent-red'} name={'Transport'} amount={Transport} number={TotalTransport}/>
+                  <MonthlyAccounts month={month} color1={'accent-orange'} name={'Education'} amount={Education} number={TotalEducation}/>
+                  <MonthlyAccounts  month={month} color1={'accent-purple'} name={'General'} amount={General} number={TotalGeneral}/>
+                  <MonthlyAccounts month={month}  color1={'yellow-300'} name={'Stationary'} amount={Stationary} number={TotalStationary}/>
+                  <MonthlyAccounts month={month}  color1={'accent-green'} name={'Vehical'} amount={Vehical} number={TotalVehical}/>
+                  <MonthlyAccounts month={month}  color1={'accent-blue'} name={'Computer'} amount={Computer} number={TotalComputer}/>
+                  <MonthlyAccounts month={month}  color1={'accent-red'} name={'Dress'} amount={Dress} number={TotalDress}/>
+                  <MonthlyAccounts month={month}  color1={'accent-orange'} name={'Medical'} amount={Medical} number={TotalMedical}/>
+                  <MonthlyAccounts month={month}  color1={'accent-purple'} name={'Telephone'} amount={Telephone} number={TotalTelephone}/>
+                  <MonthlyAccounts month={month}  color1={'yellow-300'} name={'Water'} amount={Water} number={TotalWater}/>
+                  <MonthlyAccounts month={month}  color1={'accent-green'} name={'Gas'} amount={Gas} number={TotalGas}/>
+                  <MonthlyAccounts month={month}  color1={'accent-blue'} name={'Electricity'} amount={Electricity} number={TotalElectricity}/>
+                  <MonthlyAccounts month={month}  color1={'accent-red'} name={'HouseHold'} amount={HouseHold} number={TotalHouseHold}/>
+                  <MonthlyAccounts month={month}  color1={'accent-orange'} name={'Bank'} amount={Bank} number={TotalBank}/>
+                  <MonthlyAccounts month={month}  color1={'accent-purple'} name={'Baby'} amount={Baby} number={TotalBaby}/>
+                  <MonthlyAccounts month={month}  color1={'yellow-300'} name={'School'} amount={School} number={TotalSchool}/>
+                  <MonthlyAccounts month={month}  color1={'accent-green'} name={'HouseCons'} amount={HouseCons} number={TotalHouseCons}/>
+                  <MonthlyAccounts month={month}  color1={'accent-blue'} name={'PHD'} amount={PHD} number={TotalPHD}/>
+                  <MonthlyAccounts month={month}  color1={'accent-red'} name={'OmanRent'} amount={OmanRent} number={TotalOmanRent}/>
+                  <MonthlyAccounts month={month}  color1={'accent-orange'} name={'AirPassage'} amount={AirPassage} number={TotalAirPassage}/>
+                  <MonthlyAccounts month={month}  color1={'accent-purple'} name={'OmanExpen'} amount={OmanExpen} number={TotalOmanExpen}/>
+                  <MonthlyAccounts month={month}  color1={'yellow-300'} name={'NewZealand'} amount={NewZealand} number={TotalNewZealand}/>
+                  <MonthlyAccounts month={month}  color1={'accent-green'} name={'Gifts'} amount={Gifts} number={TotalGifts}/>
                 </div>
               </div>
               <h1></h1>
