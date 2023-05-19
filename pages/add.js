@@ -71,7 +71,7 @@ export default function Home() {
       console.log('success')
       setAlert(false)
       setType('')
-      setExpense('')
+      setAmount('')
     })
   }
 
