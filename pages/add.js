@@ -30,7 +30,7 @@ export default function Home() {
     'Bank','Baby','School',
     'HouseCons','PHD','OmanRent',
     'AirPassage','OmanExpen',
-    'NewZealand','Gifts']
+    'NewZealand','Gifts','FD']
 
   
   const train = useParallax({
