@@ -57,7 +57,7 @@ function yearly(){
     'Bank','Baby','School',
     'HouseCons','PHD','OmanRent',
     'AirPassage','OmanExpen',
-    'NewZealand','Gifts']
+    'NewZealand','Gifts','FD]
 
     useEffect(() => {
         onAuthStateChanged(auth, (data) =>{
