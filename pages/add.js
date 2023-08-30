@@ -72,6 +72,7 @@ export default function Home() {
       setAlert(false)
       setType('')
       setAmount('')
+      window.location.reload();
     })
   }
 
