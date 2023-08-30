@@ -49,6 +49,8 @@ function monthly() {
   let OmanExpen = 0
   let NewZealand = 0
   let Gifts = 0
+  let FD = 0
+  let TotalFD = 0
   let TotalGifts = 0
   let TotalEducation = 0
   let TotalFuel = 0
@@ -228,6 +230,11 @@ function monthly() {
       TotalGifts+=1  
       Total += amount  
     }
+    if(name== 'FD'){
+      FD += amount
+      TotalFD+=1  
+      Total += amount  
+    }
   }
 
   return (
@@ -335,6 +342,7 @@ function monthly() {
                   <MonthlyAccounts month={month}  color1={'accent-purple'} name={'OmanExpen'} amount={OmanExpen} number={TotalOmanExpen}/>
                   <MonthlyAccounts month={month}  color1={'yellow-300'} name={'NewZealand'} amount={NewZealand} number={TotalNewZealand}/>
                   <MonthlyAccounts month={month}  color1={'accent-green'} name={'Gifts'} amount={Gifts} number={TotalGifts}/>
+                  <MonthlyAccounts month={month}  color1={'accent-green'} name={'FD'} amount={FD} number={TotalFD}/>
                 </div>
               </div>
               <h1></h1>
