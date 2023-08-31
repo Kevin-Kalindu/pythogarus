@@ -41,6 +41,12 @@ export default function Home() {
     speed:200,
     targetElement: target.current,
   })
+  useEffect(() => {
+    const storedDate1 = localStorage.getItem('savedDate1');
+    if (storedDate1) {
+      setDate(storedDate1);
+    }
+  }, []);
 
   useEffect(() => {
     onAuthStateChanged(auth, (data) =>{
@@ -72,6 +78,7 @@ export default function Home() {
       setAlert(false)
       setType('')
       setAmount('')
+      localStorage.setItem('savedDate1', date1);
       window.location.reload();
     })
   }
@@ -139,7 +146,7 @@ export default function Home() {
             <label class="space-y-2 w-full lg:w-4/5 block mx-auto">
               <span class="block text-lg text-gray-800 tracking-wide">Date</span>
               <span class="block">
-                <input onChange={(e) => setDate(e.target.value)} type="date" class="bg-yellow-100 lg:bg-white border lg:border-2 border-gray-400 lg:border-gray-200 w-full p-3 focus:outline-none active:outline-none focus:border-gray-400 active:border-gray-400"/>
+                <input onChange={(e) => setDate(e.target.value)} value={date1}  type="date" class="bg-yellow-100 lg:bg-white border lg:border-2 border-gray-400 lg:border-gray-200 w-full p-3 focus:outline-none active:outline-none focus:border-gray-400 active:border-gray-400"/>
               </span>
             </label>
           </div>
