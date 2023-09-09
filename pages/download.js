@@ -48,19 +48,24 @@ export default function Home() {
   const fileRef = storage.ref().child(`${num}.xlsx`);
 
   // Get the download URL for the file
-  fileRef
-    .getDownloadURL()
-    .then((url) => {
-      // Create a download link (an anchor element)
-      const downloadLink = document.createElement('a');
-      downloadLink.href = url;
-      downloadLink.download = 'kevin.jpg'; // Set the desired file name
-      downloadLink.click(); // Trigger a click event to start the download
-    })
-    .catch((error) => {
-      console.error('Error getting download URL:', error);
-    });
-  setName(false)
+  .getDownloadURL()
+  .then((url) => {
+    // Create a download link (an anchor element)
+    const downloadLink = document.createElement('a');
+    downloadLink.href = url;
+
+    // Set the desired file name based on the value of `num`
+    downloadLink.download = `${num}.xlsx`;
+
+    // Trigger a click event to start the download
+    downloadLink.click();
+  })
+  .catch((error) => {
+    console.error('Error getting download URL:', error);
+  });
+
+// Set `setName` to `false` if needed
+  setName(false);
 };
    return (
   <div>
