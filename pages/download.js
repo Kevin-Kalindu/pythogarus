@@ -45,14 +45,14 @@ export default function Home() {
 };
   const handleDownload = (e) => {
   e.preventDefault();
-  const fileRef = storage.ref().child(fileName);
+  const fileRef = storage.ref().child(`${num}.xlsx`);
   fileRef
     .getDownloadURL()
     .then((url) => {
       // Create a download link (an anchor element)
       const downloadLink = document.createElement('a');
       downloadLink.href = url;
-      downloadLink.download = fileName; // Set the desired file name
+      downloadLink.download =`${num}.xlsx`; // Set the desired file name
       downloadLink.click(); // Trigger a click event to start the download
     })
     .catch((error) => {
