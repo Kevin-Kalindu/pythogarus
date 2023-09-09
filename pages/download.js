@@ -14,7 +14,7 @@ import StatusCard from '../components/StatusCard'
 export default function Home() {
   const auth = getAuth(app)
   const router = useRouter()
-  const[name, setName] = useState(False)
+  const[name, setName] = useState(false)
   const[num, setNum] = useState('')
   const[year, setYear] = useState('')
   const[logged, setLogged] = useState(false)
@@ -39,12 +39,12 @@ export default function Home() {
     setNum(names)
     const url = `https://quantumkevin.pythonanywhere.com/${year}/${num}`;
     window.open(url, '_blank');
-    setName(True)
+    setName(true)
   }
 };
   const handleDownload = (e) => {
   e.preventDefault();
-  setName(False)
+  setName(false)
 };
    return (
   <div>
