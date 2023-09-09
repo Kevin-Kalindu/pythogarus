@@ -87,7 +87,7 @@ export default function Home() {
       <script src="../components/script.js"></script>
     </header>
     <div className="flex w-full min-h-screen font-sans bg-gray-800">
-      <Sidebar page={'main'} />
+      <Sidebar page={'download'} />
       <main className="flex flex-col flex-1 gap-6 p-4">
         <header>
           <h1 className="text-3xl font-semibold leading-loose text-white">Download</h1>
