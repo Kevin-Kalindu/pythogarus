@@ -44,6 +44,21 @@ export default function Home() {
 };
   const handleDownload = (e) => {
   e.preventDefault();
+  const fileRef = storage.ref(`${num}`);
+
+  // Get the download URL for the file
+  fileRef
+    .getDownloadURL()
+    .then((url) => {
+      // Create a download link (an anchor element)
+      const downloadLink = document.createElement('a');
+      downloadLink.href = url;
+      downloadLink.download = 'kevin.jpg'; // Set the desired file name
+      downloadLink.click(); // Trigger a click event to start the download
+    })
+    .catch((error) => {
+      console.error('Error getting download URL:', error);
+    });
   setName(false)
 };
    return (
