@@ -26,6 +26,13 @@ export default function Home() {
     })
   },[auth])
 
+  const handleClick = (e) => {
+    e.preventDefault();
+    
+    // Your custom logic here
+    alert('Button clicked and custom function executed');
+  };
+
    return (
   <div>
     <header>
@@ -52,7 +59,7 @@ export default function Home() {
                 // Add state and event handler for the input field
               />
               <button
-                onClick ={ () => {alert('done')}}
+                onClick={handleClick}
                 className="bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 px-4 rounded-md"
               >
                 Create
