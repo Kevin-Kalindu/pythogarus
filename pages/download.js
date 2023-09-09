@@ -44,21 +44,27 @@ export default function Home() {
 };
   const handleDownload = (e) => {
   e.preventDefault();
-  const fileRef = storage.ref().child(`${num}.xlsx`);
+  getDownloadURL(ref(storage, 'images/stars.jpg'))
+  .then((url) => {
+    // `url` is the download URL for 'images/stars.jpg'
 
-  // Get the download URL for the file
-  fileRef
-    .getDownloadURL()
-    .then((url) => {
-      // Create a download link (an anchor element)
-      const downloadLink = document.createElement('a');
-      downloadLink.href = url;
-      downloadLink.download = `${num}.xlsx` // Set the desired file name
-      downloadLink.click(); // Trigger a click event to start the download
-    })
-    .catch((error) => {
-      console.error('Error getting download URL:', error);
-    });
+    // This can be downloaded directly:
+    const xhr = new XMLHttpRequest();
+    xhr.responseType = 'blob';
+    xhr.onload = (event) => {
+      const blob = xhr.response;
+    };
+    xhr.open('GET', url);
+    xhr.send();
+
+    // Or inserted into an <img> element
+    const img = document.getElementById('myimg');
+    img.setAttribute('src', url);
+  })
+  .catch((error) => {
+    // Handle any errors
+  });
+
   setName(false);
 };
    return (
