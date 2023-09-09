@@ -14,7 +14,7 @@ function Sidebar({page}){
         {name: 'yearly', Icon:HiCurrencyDollar},
         {name: 'notes', Icon:HiBookOpen},
         {name: 'logOut', Icon: HiLogout},
-        {name: 'download', Icon: RiFileExcel2Fill}
+        {name: 'download', Icon: HiSave}
     ]
 
     function logOut(){
