@@ -14,8 +14,10 @@ import StatusCard from '../components/StatusCard'
 export default function Home() {
   const auth = getAuth(app)
   const router = useRouter()
-  const[logged, setLogged] = useState(false)
+  const[name, setName] = useState('')
   const[year, setYear] = useState('')
+  const[logged, setLogged] = useState(false)
+  
   
   useEffect(() => {
     onAuthStateChanged(auth, (data) =>{
@@ -28,10 +30,16 @@ export default function Home() {
   },[auth])
 
   const handleClick = (e) => {
-    e.preventDefault();
-    alert(year)
-  };
-
+  e.preventDefault();
+  if (year === '') {
+    alert('Enter year');
+  } else {
+    const names = Math.floor(Math.random() * 100).toString();
+    setName(names)
+    const url = `https://quantumkevin.pythonanywhere.com/${year}/${name}`;
+    window.open(url, '_blank');
+  }
+};
    return (
   <div>
     <header>
