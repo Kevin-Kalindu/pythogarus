@@ -44,7 +44,7 @@ export default function Home() {
 };
   const handleDownload = (e) => {
   e.preventDefault();
-  // getDownloadURL(ref(storage, `${num}.xlsx`))
+  // getDownloadURL(ref(storage, `${num}`))
   // .then((url) => {
   //   // `url` is the download URL for 'images/stars.jpg'
 
