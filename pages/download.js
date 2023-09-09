@@ -9,8 +9,7 @@ import Image from 'next/image'
 import { useRecoilState } from 'recoil'
 import { modalState } from '../atoms/modalAtoms'
 import StatusCard from '../components/StatusCard'
-
-
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
 export default function Home() {
   const auth = getAuth(app)
@@ -19,7 +18,6 @@ export default function Home() {
   const[num, setNum] = useState('')
   const[year, setYear] = useState('')
   const[logged, setLogged] = useState(false)
-  
   
   useEffect(() => {
     onAuthStateChanged(auth, (data) =>{
@@ -45,23 +43,19 @@ export default function Home() {
 };
   const handleDownload = (e) => {
   e.preventDefault();
-  alert('came to the function')
-  const fileRef = storage.ref().child(`${num}.xlsx`);
-  alert('got the file location')
-  fileRef
-    .getDownloadURL()
-    .then((url) => {
-      // Create a download link (an anchor element)
-      alert('came the the then')
-      const downloadLink = document.createElement('a');
-      downloadLink.href = url;
-      downloadLink.download =`${num}.xlsx`; // Set the desired file name
-      downloadLink.click(); // Trigger a click event to start the download
-    })
-    .catch((error) => {
-      alert('came to the error')
-      console.error('Error getting download URL:', error);
-    });
+  alert('came to func')
+  getDownloadURL(ref(storage, `${num}.xlsx`))
+  .then((url) => {
+    // `url` is the download URL for 'images/stars.jpg'
+
+    // This can be downloaded directly:
+    const xhr = new XMLHttpRequest();
+    xhr.responseType = 'blob';
+    xhr.onload = (event) => {
+      const blob = xhr.response;
+    };
+    xhr.open('GET', url);
+    xhr.send();
   setName(false);
 };
    return (
