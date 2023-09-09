@@ -11,6 +11,7 @@ import { modalState } from '../atoms/modalAtoms'
 import StatusCard from '../components/StatusCard'
 
 
+
 export default function Home() {
   const auth = getAuth(app)
   const router = useRouter()
