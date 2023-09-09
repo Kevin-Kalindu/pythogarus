@@ -44,7 +44,8 @@ export default function Home() {
   const handleDownload = (e) => {
   e.preventDefault();
   alert('came to func')
-  getDownloadURL(ref(storage, `${num}.xlsx`))
+  link =  `${num}.xlsx`
+  getDownloadURL(ref(storage,link))
   .then((url) => {
     // `url` is the download URL for 'images/stars.jpg'
 
