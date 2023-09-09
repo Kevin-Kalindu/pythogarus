@@ -44,7 +44,7 @@ export default function Home() {
 };
   const handleDownload = (e) => {
   e.preventDefault();
-  const fileRef = storage.ref(`${num}.xlsx`);
+  const fileRef = storage.ref().child(`${num}.xlsx`);
 
   // Get the download URL for the file
   fileRef
