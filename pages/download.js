@@ -8,6 +8,7 @@ import { useParallax } from 'react-scroll-parallax'
 import Image from 'next/image'
 import { useRecoilState } from 'recoil'
 import { modalState } from '../atoms/modalAtoms'
+import StatusCard from '../components/StatusCard'
 
 
 export default function Home() {
