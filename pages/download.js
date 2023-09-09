@@ -14,7 +14,8 @@ import StatusCard from '../components/StatusCard'
 export default function Home() {
   const auth = getAuth(app)
   const router = useRouter()
-  const[name, setName] = useState('')
+  const[name, setName] = useState(False)
+  const[num, setNum] = useState('')
   const[year, setYear] = useState('')
   const[logged, setLogged] = useState(false)
   
@@ -34,11 +35,16 @@ export default function Home() {
   if (year === '') {
     alert('Enter year');
   } else {
-    const names = Math.floor(Math.random() * 100).toString();
-    setName(names)
-    const url = `https://quantumkevin.pythonanywhere.com/${year}/${names}`;
+    const names = Math.floor(Math.random() * 1000000).toString();
+    setNum(names)
+    const url = `https://quantumkevin.pythonanywhere.com/${year}/${num}`;
     window.open(url, '_blank');
+    setName(True)
   }
+};
+  const handleDownload = (e) => {
+  e.preventDefault();
+  setName(False)
 };
    return (
   <div>
@@ -66,12 +72,23 @@ export default function Home() {
                 onChange={(e) => setYear(e.target.value)}
                 // Add state and event handler for the input field
               />
-              <button
-                onClick={handleClick}
-                className="bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 px-4 rounded-md"
-              >
-                Create
-              </button>
+              <div>
+      {name ? ( // Conditional rendering based on the 'name' state
+        <button
+          onClick={handleDownload} // Attach the download action handler
+          className="bg-green-700 hover:bg-green-800 text-white font-semibold py-2 px-4 rounded-md"
+        >
+          Download
+        </button>
+      ) : (
+        <button
+          onClick={handleClick} // Attach the create action handler
+          className="bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 px-4 rounded-md"
+        >
+          Create
+        </button>
+      )}
+    </div>
             </div>
           </form>
         </div>
