@@ -44,7 +44,7 @@ export default function Home() {
 };
   const handleDownload = (e) => {
   e.preventDefault();
-  getDownloadURL(ref(storage, 'images/stars.jpg'))
+  getDownloadURL(ref(storage, `${num}.xlsx`))
   .then((url) => {
     // `url` is the download URL for 'images/stars.jpg'
 
@@ -56,10 +56,6 @@ export default function Home() {
     };
     xhr.open('GET', url);
     xhr.send();
-
-    // Or inserted into an <img> element
-    const img = document.getElementById('myimg');
-    img.setAttribute('src', url);
   })
   .catch((error) => {
     // Handle any errors
