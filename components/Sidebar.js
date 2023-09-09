@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import {HiLogout ,HiCalculator,HiBookOpen,HiCalendar, HiPlusCircle, HiHome, HiCurrencyDollar,RiFileExcel2Fill} from 'react-icons/hi'
+import {HiLogout ,HiCalculator,HiBookOpen,HiCalendar, HiPlusCircle, HiHome, HiCurrencyDollar,HiSave} from 'react-icons/hi'
 import {getAuth, signOut} from 'firebase/auth'
 import {app} from '../firbase'
 
