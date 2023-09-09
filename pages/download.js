@@ -52,7 +52,6 @@ export default function Home() {
                 // Add state and event handler for the input field
               />
               <button
-                type="submit"
                 onClick ={ () => {alert('done')}}
                 className="bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 px-4 rounded-md"
               >
