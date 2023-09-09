@@ -15,6 +15,7 @@ export default function Home() {
   const auth = getAuth(app)
   const router = useRouter()
   const[logged, setLogged] = useState(false)
+  const[year, setYear] = useState('')
   
   useEffect(() => {
     onAuthStateChanged(auth, (data) =>{
@@ -28,9 +29,7 @@ export default function Home() {
 
   const handleClick = (e) => {
     e.preventDefault();
-    
-    // Your custom logic here
-    alert('Button clicked and custom function executed');
+    alert(year)
   };
 
    return (
@@ -56,6 +55,7 @@ export default function Home() {
                 type="text"
                 className="p-2 m-2 rounded-md"
                 placeholder="Enter Year"
+                onChange={(e) => setYear(e.target.value)}
                 // Add state and event handler for the input field
               />
               <button
