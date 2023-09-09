@@ -18,6 +18,7 @@ export default function Home() {
   const[num, setNum] = useState('')
   const[year, setYear] = useState('')
   const[logged, setLogged] = useState(false)
+  const storage = getStorage();
   
   useEffect(() => {
     onAuthStateChanged(auth, (data) =>{
