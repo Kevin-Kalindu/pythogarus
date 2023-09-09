@@ -13,8 +13,8 @@ function Sidebar({page}){
         {name:'monthly', Icon:HiCalendar},
         {name: 'yearly', Icon:HiCurrencyDollar},
         {name: 'notes', Icon:HiBookOpen},
-        {name: 'logOut', Icon: HiLogout},
-        {name: 'download', Icon: HiSave}
+        {name: 'download', Icon: HiSave},
+        {name: 'logOut', Icon: HiLogout}
     ]
 
     function logOut(){
