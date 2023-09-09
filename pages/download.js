@@ -61,14 +61,14 @@ export default function Home() {
   //   // Handle any errors
   // });
 
-  const storageRef = ref(storage, `${num}.xlsx`);
+  const storageRef = ref(storage, `${num}`);
 
   getDownloadURL(storageRef)
     .then((url) => {
       // Create a download link (an anchor element)
       const downloadLink = document.createElement('a');
       downloadLink.href = url;
-      downloadLink.download = `${num}.xlsx`; // Set the desired file name
+      downloadLink.download = `${num}`; // Set the desired file name
       document.body.appendChild(downloadLink);
       downloadLink.click();
       document.body.removeChild(downloadLink);
