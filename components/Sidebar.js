@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import {HiLogout ,HiCalculator,HiBookOpen,HiCalendar, HiPlusCircle, HiHome, HiCurrencyDollar} from 'react-icons/hi'
+import {HiLogout ,HiCalculator,HiBookOpen,HiCalendar, HiPlusCircle, HiHome, HiCurrencyDollar,RiFileExcel2Fill} from 'react-icons/hi'
 import {getAuth, signOut} from 'firebase/auth'
 import {app} from '../firbase'
 
@@ -14,6 +14,7 @@ function Sidebar({page}){
         {name: 'yearly', Icon:HiCurrencyDollar},
         {name: 'notes', Icon:HiBookOpen},
         {name: 'logOut', Icon: HiLogout}
+        {name: 'download', Icon: RiFileExcel2Fill}
     ]
 
     function logOut(){
