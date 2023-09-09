@@ -44,22 +44,39 @@ export default function Home() {
 };
   const handleDownload = (e) => {
   e.preventDefault();
-  getDownloadURL(ref(storage, `${num}.xlsx`))
-  .then((url) => {
-    // `url` is the download URL for 'images/stars.jpg'
+  // getDownloadURL(ref(storage, `${num}.xlsx`))
+  // .then((url) => {
+  //   // `url` is the download URL for 'images/stars.jpg'
 
-    // This can be downloaded directly:
-    const xhr = new XMLHttpRequest();
-    xhr.responseType = 'blob';
-    xhr.onload = (event) => {
-      const blob = xhr.response;
-    };
-    xhr.open('GET', url);
-    xhr.send();
-  })
-  .catch((error) => {
-    // Handle any errors
-  });
+  //   // This can be downloaded directly:
+  //   const xhr = new XMLHttpRequest();
+  //   xhr.responseType = 'blob';
+  //   xhr.onload = (event) => {
+  //     const blob = xhr.response;
+  //   };
+  //   xhr.open('GET', url);
+  //   xhr.send();
+  // })
+  // .catch((error) => {
+  //   // Handle any errors
+  // });
+
+  const storageRef = ref(storage, `${num}.xlsx`);
+
+  getDownloadURL(storageRef)
+    .then((url) => {
+      // Create a download link (an anchor element)
+      const downloadLink = document.createElement('a');
+      downloadLink.href = url;
+      downloadLink.download = `${num}.xlsx`; // Set the desired file name
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      document.body.removeChild(downloadLink);
+    })
+    .catch((error) => {
+      console.error('Error getting download URL:', error);
+    });
+
 
   setName(false);
 };
