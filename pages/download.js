@@ -41,10 +41,6 @@ export default function Home() {
                             <div className="text-gray-200">Made by Kevin</div>
                           </header>
                           <hr className="border-gray-700"/>
-                          <StatusCard/>
-                          <div className="p-6 bg-gray-900 rounded-lg">
-                            
-                          </div>
                         </main>
                     </div>
               </div>
