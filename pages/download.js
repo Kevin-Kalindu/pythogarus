@@ -36,7 +36,7 @@ export default function Home() {
   } else {
     const names = Math.floor(Math.random() * 100).toString();
     setName(names)
-    const url = `https://quantumkevin.pythonanywhere.com/${year}/${name}`;
+    const url = `https://quantumkevin.pythonanywhere.com/${year}/${names}`;
     window.open(url, '_blank');
   }
 };
