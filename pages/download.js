@@ -42,23 +42,7 @@ export default function Home() {
                           <hr className="border-gray-700"/>
                           <StatusCard/>
                           <div className="p-6 bg-gray-900 rounded-lg">
-                            <table className="w-full">
-                              <thead>
-                                  <tr className="text-sm font-semibold text-white">
-                                      <td className="py-4 border-b border-gray-700">Expense</td>
-                                      <td className="py-4 border-b border-gray-700">Amount</td>
-                                      <td className="py-4 border-b border-gray-700">Date</td>
-                                      <td className="py-4 border-b border-gray-700">Type</td>
-                                  </tr>
-                              </thead>
-                              <tbody>
-                                {posts.map((item) => {
-                                  return(
-                                    <Accounts id={item.id} month={item.month} expense={item.expense} amount={item.amount} type={item.type} date={item.date}/>
-                                  )
-                                })}
-                              </tbody>
-                          </table>
+                            
                           </div>
                         </main>
                     </div>
