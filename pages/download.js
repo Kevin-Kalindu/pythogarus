@@ -59,7 +59,7 @@ export default function Home() {
       downloadLink.click(); // Trigger a click event to start the download
     })
     .catch((error) => {
-      alert('came to the error)
+      alert('came to the error')
       console.error('Error getting download URL:', error);
     });
   setName(false);
