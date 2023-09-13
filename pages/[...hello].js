@@ -21,6 +21,8 @@ function hello(){
         <div className="w-screen h-screen justify-center text-white text-6xl bg-gray-800 flex items-center">
           <header className=''>
                 <title>Pythogarus</title>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2318083812487394"
+     crossorigin="anonymous"></script>
           </header>
           <h1>Sorry {user.displayName} Unavailable page</h1>
         </div>
