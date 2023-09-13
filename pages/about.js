@@ -21,6 +21,24 @@ But that's not all – we understand the importance of flexibility and convenien
                         To use our app please contact us through our email: kevinhettiarrachchi5@gmail.com. 
     </p>
                 </div>
+    <div>
+        <img src="https://firebasestorage.googleapis.com/v0/b/ammi-clone.appspot.com/o/files%2FMonthly.png?alt=media&token=35f78410-0208-4a3c-9002-2ddc92f2cf55" alt="Monthly Image">
+    </div>
+    <div>
+        <img src="https://firebasestorage.googleapis.com/v0/b/ammi-clone.appspot.com/o/files%2FYearly.png?alt=media&token=1cc15415-9d64-4bf6-891d-0513283219f5" alt="Yearly Image">
+    </div>
+    <div>
+        <img src="https://firebasestorage.googleapis.com/v0/b/ammi-clone.appspot.com/o/files%2Fadd.png?alt=media&token=de9eb101-38c9-4b47-84d7-197539a93301" alt="Add Image">
+    </div>
+    <div>
+        <img src="https://firebasestorage.googleapis.com/v0/b/ammi-clone.appspot.com/o/files%2Fconsole.png?alt=media&token=7c2b3994-a790-48f9-997a-5944b3f93576" alt="Console Image">
+    </div>
+    <div>
+        <img src="https://firebasestorage.googleapis.com/v0/b/ammi-clone.appspot.com/o/files%2Fdaily.png?alt=media&token=7edf06fe-f223-4ef1-8549-050cfd2a2bff" alt="Daily Image">
+    </div>
+    <div>
+        <img src="https://firebasestorage.googleapis.com/v0/b/ammi-clone.appspot.com/o/files%2Fdownload.png?alt=media&token=dd97196b-ef27-423f-bcbd-b07d73402454" alt="Download Image">
+    </div>
         </div>
     )
 }
