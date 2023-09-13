@@ -7,6 +7,8 @@ function Contacts(){
              <header className=''>
                 <title>Pythogarus</title>
                 <script src="../components/script.js"></script>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2318083812487394"
+     crossorigin="anonymous"></script>
           </header>
             <Header page={'Privacy'}/>
             <div className={styles.section1}>
@@ -23,7 +25,7 @@ Personal Information: We may collect personal information about you, such as you
 
 Usage Information: We may collect information about your usage of our website and services, such as the pages you visit and the actions you take.<br></br>
 
-Device Information: We may collect information about the device you use to access our website and services, such as the device's IP address, browser type, and operating system.<br></br><br></br>
+<br></br><br></br>
 
 How We Use Your Information<br></br><br></br>
 
