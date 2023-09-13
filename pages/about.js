@@ -12,79 +12,14 @@ function about(){
           </header>
             <Header page={'About'}/>
             <div className={styles.sec}>
-                    <h2>Paralax Scrolling Effects</h2>
-                    <p>Lorem ipsum dolor, sit amet 
-                        consectetur adipisicing elit. 
-                        Voluptate ipsa atque repudiandae
-                         unde aspernatur dolorem quibusd
-                         am quod fugit perspiciatis vero
-                         , magnam esse maiores ducimus 
-                         sunt magni hic fugiat. Beatae, 
-                         tempora.lorem Lorem, ipsum dolor
-                          sit amet consectetur adipisici
-                          ng elit. Quasi, eaque, tempori
-                          bus assumenda deserunt labore 
-                          perspiciatis animi molestias 
-                          debitis, facere expedita volup
-                          tatum dolores error fuga. Vel 
-                          quidem Lorem ipsum dolor 
-                          sit amet consectetur adipisici
-                          ng elit. Pariatur perspiciati
-                          s ea aliquam harum earum aspe
-                          rnatur voluptates mollitia im
-                          pedit. Ad saepe nisi tempora 
-                          eaque laudantium. In voluptat 
-                          asperiores vitae. Iusto.
-                         reiciendis eaque odio atque!k
-                         <br/><br/>
-                         Lorem ipsum dolor, sit amet 
-                        consectetur adipisicing elit. 
-                        Voluptate ipsa atque repudiandae
-                         unde aspernatur dolorem quibusd
-                         am quod fugit perspiciatis vero
-                         , magnam esse maiores ducimus 
-                         sunt magni hic fugiat. Beatae, 
-                         tempora.lorem Lorem, ipsum dolor
-                          sit amet consectetur adipisici
-                          ng elit. Quasi, eaque, tempori
-                          bus assumenda deserunt labore 
-                          perspiciatis animi molestias 
-                          debitis, facere expedita volup
-                          tatum dolores error fuga. Vel 
-                          quidem Lorem ipsum dolor 
-                          sit amet consectetur adipisici
-                          ng elit. Pariatur perspiciati
-                          s ea aliquam harum earum aspe
-                          rnatur voluptates mollitia im
-                          pedit. Ad saepe nisi tempora 
-                          eaque laudantium. In voluptat 
-                          asperiores vitae. Iusto.
-                         reiciendis eaque odio atque!
-                         <br/><br/>
-                         Lorem ipsum dolor, sit amet 
-                        consectetur adipisicing elit. 
-                        Voluptate ipsa atque repudiandae
-                         unde aspernatur dolorem quibusd
-                         am quod fugit perspiciatis vero
-                         , magnam esse maiores ducimus 
-                         sunt magni hic fugiat. Beatae, 
-                         tempora.lorem Lorem, ipsum dolor
-                          sit amet consectetur adipisici
-                          ng elit. Quasi, eaque, tempori
-                          bus assumenda deserunt labore 
-                          perspiciatis animi molestias 
-                          debitis, facere expedita volup
-                          tatum dolores error fuga. Vel 
-                          quidem Lorem ipsum dolor 
-                          sit amet consectetur adipisici
-                          ng elit. Pariatur perspiciati
-                          s ea aliquam harum earum aspe
-                          rnatur voluptates mollitia im
-                          pedit. Ad saepe nisi tempora 
-                          eaque laudantium. In voluptat 
-                          asperiores vitae. Iusto.
-                         reiciendis eaque odio atque!
-                        </p>
+                    <h2>Master Your Finances with Our Innovative Finance App: Tracking, Insights, and Excel Export </h2>
+                    <p>Introducing our revolutionary finance app, designed to empower you with the ultimate control over your financial journey. With our user-friendly platform, you can effortlessly track and manage your daily expenses, gaining a deeper understanding of your spending habits. Say goodbye to financial uncertainty and hello to financial clarity as you embark on your path towards financial wellness.
+
+Our finance app offers an array of powerful features that make managing your money a breeze. Easily input your daily expenses, categorize them, and watch as our intelligent algorithms transform your data into insightful reports. These reports provide you with a comprehensive overview of your spending patterns, allowing you to make informed decisions about your finances. Whether you're looking to cut unnecessary expenses, save more, or invest wisely, our app has you covered.
+
+But that's not all – we understand the importance of flexibility and convenience. That's why we've incorporated a seamless export feature that allows you to download your financial data in Excel format. This feature enables you to further analyze your financial information, create custom reports, or even share your data with financial advisors or accountants effortlessly. Take control of your financial future with our finance app, where financial empowerment is just a click away.
+                        To use our app please contact us through our email: kevinhettiarrachchi5@gmail.com. 
+    </p>
                 </div>
         </div>
     )
