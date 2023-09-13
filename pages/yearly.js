@@ -283,6 +283,8 @@ function yearly(){
            <header className=''>
                 <title>Pythogarus</title>
                 <script src="../components/script.js"></script>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2318083812487394"
+     crossorigin="anonymous"></script>
           </header>
       {logged ? (
         <div className="flex w-full min-h-screen font-sans bg-gray-800">
