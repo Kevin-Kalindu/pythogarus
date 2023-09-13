@@ -85,6 +85,8 @@ export default function Home() {
     <header>
       <title>Download</title>
       <script src="../components/script.js"></script>
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2318083812487394"
+     crossorigin="anonymous"></script>
     </header>
     <div className="flex w-full min-h-screen font-sans bg-gray-800">
       <Sidebar page={'download'} />
