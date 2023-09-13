@@ -23,6 +23,8 @@ function Login(){
        <header className=''>
                 <title>Pythogarus</title>
                 <script src="../components/script.js"></script>
+                  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2318083812487394"
+                 crossorigin="anonymous"></script>
           </header>
   <div class="container h-screen-75 bg-white w-full lg:w-4/5 border border-gray-300 rounded flex flex-wrap flex-nowrap group">
     <div class="w-full lg:w-1/2 bg-theme-yellow flex">
