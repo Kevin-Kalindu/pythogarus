@@ -12,7 +12,9 @@ import { modalState } from '../atoms/modalAtoms'
 import { useRecoilState } from 'recoil'
 
 function daily(){
-    const open = typeof window !== 'undefined' ? sessionStorage.getItem("year") : null;
+    const storedYear = typeof window !== 'undefined' ? sessionStorage.getItem("year") : null;
+    const currentYear = new Date().getFullYear(); // Get the current year
+    const open = storedYear !== null ? storedYear : currentYear.toString();
     const date = new Date()
     const dd = date.getDate()
     const mm = date.getMonth()
