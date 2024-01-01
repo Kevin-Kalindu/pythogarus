@@ -13,7 +13,9 @@ import { modalState } from "../atoms/modalAtoms"
 import { useRecoilState } from "recoil"
 
 function yearly(){
-  const [open,setOpen] = useRecoilState(modalState)
+  const storedYear = typeof window !== 'undefined' ? sessionStorage.getItem("year") : null;
+  const currentYear = new Date().getFullYear(); // Get the current year
+  const open = storedYear !== null ? storedYear : currentYear.toString();
     const [total,setTotal] = useState()
     const[type, setType] = useState()
     const[january, setJanuary] = useState([])
