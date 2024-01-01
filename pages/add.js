@@ -10,7 +10,7 @@ import { useRecoilState } from 'recoil'
 import { modalState } from '../atoms/modalAtoms'
 
 export default function Home() {
-  const[open,setOpen] = useRecoilState(modalState)
+  const open = typeof window !== 'undefined' ? sessionStorage.getItem("year") : null;
   const router = useRouter()
   const auth = getAuth(app)
   const [type, setType] = useState()
