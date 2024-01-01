@@ -32,7 +32,7 @@ function Home(){
     
     useEffect(() => {
       const collectionRef = collection(db, open)
-      const timestamp = query(collectionRef, orderBy('timestamp', 'desc'), limit(20))
+      const timestamp = query(collectionRef, orderBy('timeStamp', 'desc'), limit(20))
         onSnapshot(timestamp, (data) => {
           setPosts(data.docs.map((item) => {
             return {...item.data(), id: item.id}
