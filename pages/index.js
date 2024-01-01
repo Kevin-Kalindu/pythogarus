@@ -1,4 +1,4 @@
-timport Header from '../components/Header'
+import Header from '../components/Header'
 import styles from '../styles/Land.module.css'
 import Image from 'next/image'
 import Moon from './images/moon.png'
