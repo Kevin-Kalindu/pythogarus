@@ -1,4 +1,4 @@
-import Header from '../components/Header'
+timport Header from '../components/Header'
 import styles from '../styles/Land.module.css'
 import Image from 'next/image'
 import Moon from './images/moon.png'
@@ -35,11 +35,12 @@ function index(){
                     <div className='z-30 flex gap-4'>
                     <button className={styles.btn} onClick={() => {
                         setOpen(next_year)
-                        sessionStorage.setItem("year", year)
+                        sessionStorage.setItem("year", next_year)
                         router.push('./main')
                     }}>{next_year}</button>
                     <button className={styles.btn} onClick={() => {
                         setOpen(year)
+                        sessionStorage.setItem("year", year)
                         router.push('./main')
                     }}>{year}</button>
                     </div>
