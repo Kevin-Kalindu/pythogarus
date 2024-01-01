@@ -12,7 +12,8 @@ import { modalState } from "../atoms/modalAtoms";
 
 function Home(){
     const date = new Date()
-    const[open,setOpen] = useRecoilState(modalState)
+    // const[open,setOpen] = useRecoilState(modalState)
+    const open = sessionStorage.getItem("year");
     const[posts, setPosts] = useState([])
     const[loading, setLoading] = useState(true)
     const router = useRouter()
