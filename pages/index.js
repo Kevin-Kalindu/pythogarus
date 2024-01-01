@@ -35,6 +35,7 @@ function index(){
                     <div className='z-30 flex gap-4'>
                     <button className={styles.btn} onClick={() => {
                         setOpen(next_year)
+                        sessionStorage.setItem("year", year)
                         router.push('./main')
                     }}>{next_year}</button>
                     <button className={styles.btn} onClick={() => {
