@@ -12,7 +12,7 @@ import { modalState } from '../atoms/modalAtoms'
 import { useRecoilState } from 'recoil'
 
 function daily(){
-    const [open,setOpen] = useRecoilState(modalState)
+    const open = typeof window !== 'undefined' ? sessionStorage.getItem("year") : null;
     const date = new Date()
     const dd = date.getDate()
     const mm = date.getMonth()
