@@ -11,7 +11,7 @@ import { modalState } from '../atoms/modalAtoms'
 import { useRecoilState } from 'recoil'
 
 function monthly() {
-  const[open,setOpen] = useRecoilState(modalState)
+  const open = typeof window !== 'undefined' ? sessionStorage.getItem("year") : null;
   const collectionRef = collection(db, open)
   const date = new Date()
   const dd = date.getDate()
