@@ -71,7 +71,7 @@ function monthly() {
   let TotalHouseHold = 0
   let TotalBank = 0
   let TotalBaby = 0
-  let TotalSchool = 0
+  let TotalTrip = 0
   let TotalHouseCons = 0
   let TotalPHD = 0
   let TotalOmanRent = 0
