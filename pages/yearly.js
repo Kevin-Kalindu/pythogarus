@@ -56,7 +56,7 @@ function yearly(){
     'Vehical','Computer','Dress',
     'Medical','Telephone','Water',
     'Gas','Electricity','HouseHold',
-    'Bank','Baby','School',
+    'Bank','Baby','Trip',
     'HouseCons','PHD','OmanRent',
     'AirPassage','OmanExpen',
     'NewZealand','Gifts','FD']
