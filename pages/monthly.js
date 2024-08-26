@@ -43,7 +43,7 @@ function monthly() {
   let HouseHold = 0
   let Bank = 0
   let Baby = 0
-  let School = 0
+  let Trip = 0
   let HouseCons = 0
   let PHD = 0
   let OmanRent = 0
@@ -192,9 +192,9 @@ function monthly() {
       TotalBaby +=1 
       Total += amount
     }
-    if(name== 'School'){
-      School += amount
-      TotalSchool +=1
+    if(name== 'Trip'){
+      Trip += amount
+      TotalTrip +=1
       Total += amount
     }
     if(name== 'HouseCons'){
@@ -338,7 +338,7 @@ function monthly() {
                   <MonthlyAccounts month={month}  color1={'accent-red'} name={'HouseHold'} amount={HouseHold} number={TotalHouseHold}/>
                   <MonthlyAccounts month={month}  color1={'accent-orange'} name={'Bank'} amount={Bank} number={TotalBank}/>
                   <MonthlyAccounts month={month}  color1={'accent-purple'} name={'Baby'} amount={Baby} number={TotalBaby}/>
-                  <MonthlyAccounts month={month}  color1={'yellow-300'} name={'School'} amount={School} number={TotalSchool}/>
+                  <MonthlyAccounts month={month}  color1={'yellow-300'} name={'Trip'} amount={Trip} number={TotalTrip}/>
                   <MonthlyAccounts month={month}  color1={'accent-green'} name={'HouseCons'} amount={HouseCons} number={TotalHouseCons}/>
                   <MonthlyAccounts month={month}  color1={'accent-blue'} name={'PHD'} amount={PHD} number={TotalPHD}/>
                   <MonthlyAccounts month={month}  color1={'accent-red'} name={'OmanRent'} amount={OmanRent} number={TotalOmanRent}/>
