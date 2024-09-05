@@ -165,7 +165,7 @@ export default function Home() {
               <span class="block text-lg text-gray-800 tracking-wide">Amount</span>
               <span class="block">
                 <input onChange={(e) => {
-                   kk = eval(e.target.value)
+                  let kk = eval(e.target.value)
                   setAmount(kk)
                 }} type="text" class="bg-yellow-100 lg:bg-white border lg:border-2 border-gray-400 lg:border-gray-200 w-full p-3 focus:outline-none active:outline-none focus:border-gray-400 active:border-gray-400"/>
               </span>
