@@ -1,10 +1,14 @@
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
-import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
-import { app, db } from '../firebase'
+import {useRouter} from 'next/router'
+import { useEffect, useRef, useState } from 'react'
+import { app, db } from '../firbase'
 import Sidebar from '../components/Sidebar'
+import { useParallax } from 'react-scroll-parallax'
 import Image from 'next/image'
+import { useRecoilState } from 'recoil'
+import { modalState } from '../atoms/modalAtoms'
+
 
 export default function Home() {
   const open = typeof window !== 'undefined' ? sessionStorage.getItem("year") : null;
