@@ -164,7 +164,10 @@ export default function Home() {
             <label class="space-y-2 w-full lg:w-4/5 block mx-auto">
               <span class="block text-lg text-gray-800 tracking-wide">Amount</span>
               <span class="block">
-                <input onChange={(e) => setAmount(e.target.value)} type="number" class="bg-yellow-100 lg:bg-white border lg:border-2 border-gray-400 lg:border-gray-200 w-full p-3 focus:outline-none active:outline-none focus:border-gray-400 active:border-gray-400"/>
+                <input onChange={(e) => {
+                  let kk = eval(e.target.value)
+                  setAmount(kk)
+                }} type="text" class="bg-yellow-100 lg:bg-white border lg:border-2 border-gray-400 lg:border-gray-200 w-full p-3 focus:outline-none active:outline-none focus:border-gray-400 active:border-gray-400"/>
               </span>
             </label>
           </div>
