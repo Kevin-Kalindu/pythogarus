@@ -13,7 +13,7 @@ export default function Home() {
   const [type, setType] = useState()
   const [expense, setExpense] = useState()
   const [amount, setAmount] = useState()
-  const[alert, setAlert] = useState(false)
+  const[Alert1, setAlert1] = useState(false)
   const[logged, setLogged] = useState(false)
   const[date1, setDate] = useState()
   const target = useRef(null)
@@ -48,8 +48,19 @@ export default function Home() {
     })
   },[auth])
 
+  const reset = () => {
+    console.log('success')
+      setAlert1(false)
+      setAmount('')
+      setAmountfinal('')
+      setExpense('')
+      setType('')
+      localStorage.setItem('savedDate1', date1);
+  }
+
   const addData = () => {
-    const dater = date1.charAt(8)
+    try {
+      const dater = date1.charAt(8)
     const dater2 = date1.charAt(9)     
     const monthr = date1.charAt(5)
     const monthr2 = date1.charAt(6)
@@ -65,15 +76,13 @@ export default function Home() {
       month: month,
       datemonth: date3
     }).then(() => {
-      console.log('success')
-      setAlert(false)
-      setAmount('')
-      setAmountfinal('')
-      setExpense('')
-      setType('')
-      localStorage.setItem('savedDate1', date1);
-      // window.location.reload();
+      reset()
     })
+    }catch{
+      reset()
+      alert('invalid amount')
+    }
+  
   }
 
   const Button = ({name}) => {
@@ -164,7 +173,7 @@ export default function Home() {
   
             {/* Submit */}
             <div>
-              {alert ? (
+              {Alert1 ? (
                 <button className="animate-pulse bg-green-400 w-full p-3 rounded">
                   Please wait
                 </button>
@@ -172,7 +181,7 @@ export default function Home() {
                 <button
                   onClick={() => {
                     if (amount !== '' && type !== '' && expense !== '') {
-                      setAlert(true);
+                      setAlert1(true);
                       addData();
                     }
                   }}
