@@ -8,47 +8,64 @@ import MountainFront from './images/mountains_front.png'
 import {useRouter} from 'next/router'
 import { useRecoilState } from 'recoil'
 import { modalState } from '../atoms/modalAtoms'
+import { useState } from 'react'
 
-function index(){
+function Index() {
     const date = new Date()
-    const yyyy = date.getFullYear()
-    const next = yyyy -1
-    const year = String(yyyy)
-    const next_year = String(next)
+    const currentYear = date.getFullYear()
+    const startYear = 2022
+    const year = String(currentYear)
+
     const router = useRouter()
     const [open, setOpen] = useRecoilState(modalState)
-    return(
+    const [selectedYear, setSelectedYear] = useState(String(currentYear))
+
+    // Generate year options array
+    const years = []
+    for(let y = startYear; y <= currentYear; y++) {
+        years.push(String(y))
+    }
+
+    const handleGoClick = () => {
+        setOpen(selectedYear)
+        sessionStorage.setItem("year", selectedYear)
+        router.push('./main')
+    }
+
+    return (
         <div className={styles.main}>
             <header>
                 <title>Pythogarus</title>
                 <script src="../components/script.js"></script>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2318083812487394"
-     crossorigin="anonymous"></script>
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2318083812487394"
+                    crossOrigin="anonymous"></script>
             </header>
             <div className={styles.body}>
-                <Header page={'Home'}/>
+                <Header page={'Home'} />
                 <section className={styles.section}>
-                    <Image className={styles.img}  src={Stars} id='stars'/>
-                    <Image className={styles.imgMoon}  src={Moon} id='moon'/>
-                    <Image className={styles.img}  src={MountainBehind} id='mountainb'/>
+                    <Image className={styles.img} src={Stars} id='stars' />
+                    <Image className={styles.imgMoon} src={Moon} id='moon' />
+                    <Image className={styles.img} src={MountainBehind} id='mountainb' />
                     <h2 className={styles.text}>Welcome Home</h2>
-                    <div className='z-30 flex gap-4'>
-                    <button className={styles.btn} onClick={() => {
-                        setOpen(next_year)
-                        sessionStorage.setItem("year", next_year)
-                        router.push('./main')
-                    }}>{next_year}</button>
-                    <button className={styles.btn} onClick={() => {
-                        setOpen(year)
-                        sessionStorage.setItem("year", year)
-                        router.push('./main')
-                    }}>{year}</button>
+                    <div className='z-30 flex gap-4 items-center'>
+                        <select
+                            className={styles.btn}
+                            value={selectedYear}
+                            onChange={(e) => {setSelectedYear(e.target.value)
+                            sessionStorage.setItem("year", year)}
+                            }
+                        >
+                            {years.map(year => (
+                                <option key={year} value={year}>{year}</option>
+                            ))}
+                        </select>
+                        <button className={styles.btn} onClick={handleGoClick}>Go</button>
                     </div>
-                    <Image className={styles.imgfront} src={MountainFront}/>
+                    <Image className={styles.imgfront} src={MountainFront} />
                 </section>
             </div>
         </div>
     )
 }
 
-export default index
+export default Index
