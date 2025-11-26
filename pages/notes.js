@@ -3,53 +3,101 @@ import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import Loading from "../components/Loading"
 import Sidebar from "../components/Sidebar"
-import { app } from "../firbase"
+import { app, db } from "../firbase"
+import { getDoc, doc, updateDoc } from "firebase/firestore"
 
-function notes(){
-    const auth = getAuth(app)
-    const router = useRouter()
-    const[logged, setLogged] = useState(false)
-    
-    useEffect(() => {
-        onAuthStateChanged(auth, (data) =>{
-          if(data){
-               setLogged(true)
-          }else{
-            router.push('./login')
-          }
-        })
-      },[auth])
-    return(
-        <div>
-           <header className=''>
-                <title>Pythogarus</title>
-                <script src="../components/script.js"></script>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2318083812487394"
-     crossorigin="anonymous"></script>
-          </header>
+function Notes() {
+  const auth = getAuth(app)
+  const router = useRouter()
+  const [logged, setLogged] = useState(false)
+  const [types, setTypes] = useState([])
+
+  useEffect(() => {
+    async function loadTypes() {
+      const year = sessionStorage.getItem('year')
+      if (!year) {
+        router.push('./')
+        return
+      }
+      const ref = doc(db, 'your_collection', year)
+      const snap = await getDoc(ref)
+      if (snap.exists()) {
+        setTypes(snap.data().types || [])
+      } else {
+        router.push('./')
+      }
+    }
+    loadTypes()
+  }, [router])
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setLogged(true)
+      } else {
+        router.push('./login')
+      }
+    })
+  }, [auth, router])
+
+  const handleChange = (index, value) => {
+    setTypes(prevTypes => {
+      const newTypes = [...prevTypes]
+      newTypes[index] = value
+      return newTypes
+    })
+  }
+
+  const handleSave = async () => {
+    const year = sessionStorage.getItem('year')
+    if (!year) {
+      router.push('./')
+      return
+    }
+    const ref = doc(db, 'your_collection', year)
+    await updateDoc(ref, { types: types })
+    alert('Types saved successfully!')
+  }
+
+  return (
+    <div>
+      <header>
+        <title>Pythogarus</title>
+        <script src="../components/script.js"></script>
+        <script async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2318083812487394"
+          crossOrigin="anonymous"></script>
+      </header>
       {logged ? (
-        <div className="flex w-full min-h-screen font-sans">
-        <Sidebar page={'notes'}/>
-        <main className="flex flex-col flex-1 gap-6 p-4">
-            <h1 className="font-bold">POS Daily Accounting Dashboard</h1>
-            <h2 className="font-semibold">By Kevin.</h2>
-            <br />
-            <h2 className="font-semibold">Made Using:</h2>
-            <p><span>*</span>React JS <br />
-            <span>*</span>Next Js <br />
-            <span>*</span>TailwindCSS <br />
-            <span>*</span>React-Paralax <br />
-            <span>*</span>React-icons <br />
-            <span>*</span>Next Auth <br />
-            <span>*</span>Firebase fireStore <br />
-            <span>*</span>Firebase Database <br />
-            <span>*</span>Vercel</p>
-        </main>
-
+        <div className="flex w-full min-h-screen font-sans bg-gray-800 text-white">
+          <Sidebar page={'notes'} />
+          <main className="flex flex-col flex-1 gap-6 p-6 md:p-10">
+            {types.map((t, index) => (
+              <input
+                key={index}
+                type="text"
+                value={t}
+                onChange={(e) => handleChange(index, e.target.value)}
+                className="border border-gray-600 rounded-md px-4 py-3 bg-gray-900 text-white 
+                           focus:outline-none focus:ring-2 focus:ring-indigo-500 w-full max-w-lg transition"
+                placeholder={`Type ${index + 1}`}
+              />
+            ))}
+            <button
+              onClick={handleSave}
+              className="mt-6 max-w-lg w-full text-center bg-gradient-to-r from-indigo-500 to-indigo-700
+                         hover:from-indigo-600 hover:to-indigo-800 focus:ring-4 focus:ring-indigo-300
+                         rounded-lg px-6 py-3 font-semibold shadow-lg transition-colors duration-300"
+            >
+              Save
+            </button>
+          </main>
         </div>
-      ) : (<Loading/>)}
-  </div>
-    )
+      ) : (
+        <Loading />
+      )}
+    </div>
+  )
 }
 
-export default notes
+export default Notes
