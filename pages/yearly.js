@@ -6,7 +6,7 @@ import {useRouter} from 'next/router'
 import Loading from "../components/Loading"
 import Sidebar from "../components/Sidebar"
 import Accounts from '../components/Accounts'
-import { collection, onSnapshot, query, where } from "firebase/firestore"
+import { collection, onSnapshot, query, where, doc, getDoc } from "firebase/firestore"
 import StatusCard from '../components/StatusCard'
 import { HiOutlineCalendar, HiOutlineClock, HiOutlineUser } from "react-icons/hi"
 import { modalState } from "../atoms/modalAtoms"
@@ -43,6 +43,8 @@ function yearly(){
     const[novemberTotal, setNovemberTotal] = useState(0) 
     const[decemberTotal, setDecemberTotal] = useState(0)
     const[logged, setLogged] = useState(false)
+    const [types, setTypes] = useState([])
+
     const date = new Date()
     const dd = date.getDate()
     const mm = date.getMonth()
@@ -50,16 +52,22 @@ function yearly(){
     const auth = getAuth(app)
     const router = useRouter()
     const collectionRef = collection(db, open)
-    const types =['Food',
-    'Transport', 'Education',
-    'Fuel','General', 'Stationary',
-    'Vehical','Computer','Dress',
-    'Medical','Telephone','Water',
-    'Gas','Electricity','HouseHold',
-    'Bank','Baby','Trip',
-    'HouseCons','PHD','OmanRent',
-    'AirPassage','OmanExpen',
-    'NewZealand','Gifts','FD']
+
+    useEffect(() => {
+      async function loadTypes() {
+        const ref = doc(db, "your_collection", sessionStorage.getItem('year'));
+        const snap = await getDoc(ref);
+    
+        if (snap.exists()) {
+          setTypes(snap.data().types);  // <-- the array
+          console.log(snap.data().types)
+        } else {
+          console.log("No such document!");
+        }
+      }
+    
+      loadTypes();
+    }, []);
 
     useEffect(() => {
         onAuthStateChanged(auth, (data) =>{
