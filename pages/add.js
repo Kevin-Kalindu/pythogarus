@@ -1,5 +1,5 @@
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
-import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
+import { addDoc, collection, serverTimestamp, doc, getDoc } from 'firebase/firestore'
 import {useRouter} from 'next/router'
 import { useEffect, useRef, useState } from 'react'
 import { app, db } from '../firbase'
@@ -17,19 +17,7 @@ export default function Home() {
   const[logged, setLogged] = useState(false)
   const[date1, setDate] = useState()
   const target = useRef(null)
-  const [amountfinal, setAmountfinal] = useState()
-  const [testResult, setTestResult] = useState("");
-  
-  const types =['Food',
-    'Transport', 'Education',
-    'Fuel','General', 'Stationary',
-    'Vehical','Computer','Dress',
-    'Medical','Telephone','Water',
-    'Gas','Electricity','HouseHold',
-    'Bank','Baby','Trip',
-    'HouseCons','PHD','OmanRent',
-    'AirPassage','OmanExpen',
-    'NewZealand','Gifts','FD']
+  const [types, setTypes] = useState([])
     
   useEffect(() => {
     const storedDate1 = localStorage.getItem('savedDate1');
@@ -37,6 +25,22 @@ export default function Home() {
       setDate(storedDate1);
     }
   }, []);
+  useEffect(() => {
+    async function loadTypes() {
+      const ref = doc(db, "your_collection", sessionStorage.getItem('year'));
+      const snap = await getDoc(ref);
+  
+      if (snap.exists()) {
+        setTypes(snap.data().types);  // <-- the array
+        console.log(snap.data().types)
+      } else {
+        console.log("No such document!");
+      }
+    }
+  
+    loadTypes();
+  }, []);
+  
 
   useEffect(() => {
     onAuthStateChanged(auth, (data) =>{
@@ -52,15 +56,14 @@ export default function Home() {
     console.log('success')
       setAlert1(false)
       setAmount('')
-      setAmountfinal('')
       setExpense('')
       setType('')
-      localStorage.setItem('savedDate1', date1);
+
   }
 
   const addData = () => {
     try {
-      const dater = date1.charAt(8)
+    const dater = date1.charAt(8)
     const dater2 = date1.charAt(9)     
     const monthr = date1.charAt(5)
     const monthr2 = date1.charAt(6)
