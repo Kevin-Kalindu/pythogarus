@@ -27,7 +27,9 @@ function Notes() {
         const ref2 = doc(db, 'your_collection', year-1)
         const snap = await getDoc(ref)
         if (snap.exists()) {
-          setTypes(snap.data().types || [])}
+          setTypes(snap.data().types || [])
+          handleSave()
+        }
         else{router.push('./')}
       }
     }
