@@ -25,9 +25,9 @@ function Notes() {
         setTypes(snap.data().types || [])
       } else {
         const ref2 = doc(db, 'your_collection', year-1)
-        const snap = await getDoc(ref)
-        if (snap.exists()) {
-          setTypes(snap.data().types || [])
+        const snap2 = await getDoc(ref2)
+        if (snap2.exists()) {
+          setTypes(snap2.data().types || [])
           handleSave()
         }
         else{router.push('./')}
