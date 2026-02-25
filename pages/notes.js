@@ -24,7 +24,11 @@ function Notes() {
       if (snap.exists()) {
         setTypes(snap.data().types || [])
       } else {
-        router.push('./')
+        const ref2 = doc(db, 'your_collection', year-1)
+        const snap = await getDoc(ref)
+        if (snap.exists()) {
+          setTypes(snap.data().types || [])}
+        else{router.push('./')}
       }
     }
     loadTypes()
