@@ -24,24 +24,23 @@ function Notes() {
       if (snap.exists()) {
         setTypes(snap.data().types || [])
       } else {
-  const previousYear = (Number(year) - 1).toString()
-  const ref2 = doc(db, 'your_collection', previousYear)
-  const snap2 = await getDoc(ref2)
-
-  if (snap2.exists()) {
-    const previousTypes = snap2.data().types || []
-
-    setTypes(previousTypes)
-
-    // 🔥 CREATE the new year document
-    await setDoc(ref, { types: previousTypes })
-  } else {
-    router.push('./')
-  }
+        const previousYear = (Number(year) - 1).toString()
+        const ref2 = doc(db, 'your_collection', previousYear)
+        const snap2 = await getDoc(ref2)
+      
+        if (snap2.exists()) {
+          const previousTypes = snap2.data().types || []
+      
+          setTypes(previousTypes)
+      
+          // 🔥 CREATE the new year document
+          await setDoc(ref, { types: previousTypes })
+        } else {
+          router.push('./')
+        }
 }
       }
     }
-    loadTypes()
   }, [router])
 
   useEffect(() => {
