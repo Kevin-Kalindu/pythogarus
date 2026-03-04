@@ -38,9 +38,9 @@ function Notes() {
         } else {
           router.push('./')
         }
-}
       }
     }
+    loadTypes()
   }, [router])
 
   useEffect(() => {
