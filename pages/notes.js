@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import Loading from "../components/Loading"
 import Sidebar from "../components/Sidebar"
 import { app, db } from "../firbase"
-import { getDoc, doc, updateDoc } from "firebase/firestore"
+import { getDoc, doc, updateDoc,setDoc } from "firebase/firestore"
 
 function Notes() {
   const auth = getAuth(app)
@@ -24,13 +24,21 @@ function Notes() {
       if (snap.exists()) {
         setTypes(snap.data().types || [])
       } else {
-        const ref2 = doc(db, 'your_collection', year-1)
-        const snap2 = await getDoc(ref2)
-        if (snap2.exists()) {
-          setTypes(snap2.data().types || [])
-          handleSave()
-        }
-        else{router.push('./')}
+  const previousYear = (Number(year) - 1).toString()
+  const ref2 = doc(db, 'your_collection', previousYear)
+  const snap2 = await getDoc(ref2)
+
+  if (snap2.exists()) {
+    const previousTypes = snap2.data().types || []
+
+    setTypes(previousTypes)
+
+    // 🔥 CREATE the new year document
+    await setDoc(ref, { types: previousTypes })
+  } else {
+    router.push('./')
+  }
+}
       }
     }
     loadTypes()
